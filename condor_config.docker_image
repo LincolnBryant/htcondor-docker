@@ -11,11 +11,19 @@ DISCARD_SESSION_KEYRING_ON_STARTUP = False
 # I give up.  This is easier.
 LOCK = $(LOCAL_DIR)/lock_condor
 
-CONDOR_ADMIN=apohl@morgridge.org
-
 # I wonder if this setting is really required.  The RPM page said it is.
 MAIL=/usr/bin/mail
 
 # Possibly unnecessary.
 TRUST_UID_DOMAIN = True
-ALLOW_WRITE = *
+ALLOW_WRITE = 10.0.0.0/8
+
+DAEMON_LIST = MASTER, STARTD
+START       = True
+
+# Setup partionable slots on this node
+SLOT_TYPE_1               = 100%
+SLOT_TYPE_1_PARTITIONABLE = TRUE
+NUM_SLOTS                 = 1
+NUM_SLOTS_TYPE_1          = 1
+SlotWeight                = Cpus
