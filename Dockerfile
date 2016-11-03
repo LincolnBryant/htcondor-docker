@@ -6,7 +6,6 @@ MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 # Build in one RUN
 RUN yum -y install \
          yum-utils \
-         sudo \
          openssh-clients && \
          docker
     curl -O http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
