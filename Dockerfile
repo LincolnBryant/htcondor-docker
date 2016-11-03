@@ -4,11 +4,10 @@ MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
 RUN yum -y install \
-         yum-utils \
          openssh-clients && \
          docker
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    yum-config-manager --add-repo https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo && \
+    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo > /etc/yum.repos.d/htcondor-develo-ment-rhel7.repo && \
     yum -y install condor && \
     yum clean all && \
 
