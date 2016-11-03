@@ -18,8 +18,4 @@ RUN yum -y install \
 COPY condor_config.docker_image /etc/condor/config.d/
 COPY start-condor.sh /usr/sbin/
 
-# Signal to User of this image use this directory (run with -v)
-VOLUME ["/home/${SUBMIT_USER}/submit"]
-WORKDIR /home/${SUBMIT_USER}/submit
-
 CMD ["/usr/sbin/start-condor.sh"]
