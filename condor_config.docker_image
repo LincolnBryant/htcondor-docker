@@ -14,7 +14,6 @@ LOCK = $(LOCAL_DIR)/lock_condor
 # I wonder if this setting is really required.  The RPM page said it is.
 MAIL=/usr/bin/mail
 
-# Possibly unnecessary.
 TRUST_UID_DOMAIN = True
 ALLOW_WRITE = 10.0.0.0/8
 
