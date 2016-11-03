@@ -26,3 +26,5 @@ SLOT_TYPE_1_PARTITIONABLE = TRUE
 NUM_SLOTS                 = 1
 NUM_SLOTS_TYPE_1          = 1
 SlotWeight                = Cpus
+
+CONDOR_HOST = 192.170.227.1
