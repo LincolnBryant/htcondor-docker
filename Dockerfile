@@ -1,6 +1,5 @@
 FROM centos:centos7
 
-MAINTAINER Andy Pohl <apohl@morgridge.org>
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
