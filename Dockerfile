@@ -1,16 +1,17 @@
-FROM centos:centos6
+FROM centos:centos7
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
+    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo > /etc/yum.repos.d/htcondor-development-rhel7.repo && \
     yum -y install condor && \
     yum -y install epel-release && \
-    yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el6-release-latest.rpm && \
+    yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rpm && \
     yum -y install openssh-clients \ 
                    osg-wn-client \
                    osg-wn-client-glexec \
+                   docker \
                    redhat-lsb-core && \
     yum clean all 
 
