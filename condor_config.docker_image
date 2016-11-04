@@ -28,3 +28,7 @@ NUM_SLOTS_TYPE_1          = 1
 SlotWeight                = Cpus
 
 CONDOR_HOST = 192.170.227.1
+
+DOCKER_VOLUME_DIR_CVMFS      = /cvmfs:/cvmfs:ro
+DOCKER_VOLUME_DIR_ETC_CVMFS  = /etc/cvmfs:/etc/cvmfs:ro
+DOCKER_MOUNT_VOLUMES         = CVMFS, ETC_CVMFS
