@@ -3,11 +3,16 @@ FROM centos:centos6
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
-RUN yum -y install \
-         openssh-clients && \
+RUN 
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-develo-ment-rhel6.repo && \
+    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
     yum -y install condor && \
+    yum -y install epel-release && \
+    yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el6-release-latest.rpm && \ # grab the OSG repo after installing development condor
+    yum -y install openssh-clients \ 
+                   osg-wn-client \
+                   osg-wn-client-glexec \
+                   redhat-lsb-core && \
     yum clean all 
 
 # KNOBS and startup script
