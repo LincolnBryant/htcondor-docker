@@ -15,4 +15,7 @@ RUN yum -y install \
 COPY condor_config.docker_image /etc/condor/config.d/
 COPY start-condor.sh /usr/sbin/
 
-CMD ["/usr/sbin/start-condor.sh"]
+# Grab the docker socket's GID and add that to groups, then add condor as a member of that group before starting condor.
+ENTRYPOINT groupadd docker -g $(stat -c "%g" /var/run/docker.sock) && \
+           usermod -g docker condor && \ 
+           /usr/sbin/start-condor.sh
