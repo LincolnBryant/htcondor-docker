@@ -1,13 +1,12 @@
-FROM centos:centos7
+FROM centos:centos6
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
 RUN yum -y install \
-         openssh-clients \
-         docker && \
+         openssh-clients && \
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo > /etc/yum.repos.d/htcondor-develo-ment-rhel7.repo && \
+    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-develo-ment-rhel6.repo && \
     yum -y install condor && \
     yum clean all 
 
