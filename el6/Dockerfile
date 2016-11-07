@@ -9,6 +9,7 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
     yum -y install epel-release && \
     yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el6-release-latest.rpm && \
     yum -y install openssh-clients \ 
+                   openssh-server \
                    osg-wn-client \
                    osg-wn-client-glexec \
                    redhat-lsb-core && \
