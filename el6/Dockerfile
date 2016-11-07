@@ -21,7 +21,7 @@ COPY start-condor.sh /usr/sbin/
 
 # Grab the docker socket's GID and add that to groups, then add condor as a member of that group before starting condor.
 # We may mount /var/lib/docker from the host, so we chown that too.
-ENTRYPOINT groupadd docker -g $(stat -c "%g" /var/run/docker.sock) && \
+ENTRYPOINT groupmod docker -g $(stat -c "%g" /var/run/docker.sock) && \
            usermod -G docker condor && \ 
            chown -R condor: /var/lib/condor && \
            /usr/sbin/start-condor.sh
