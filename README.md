@@ -8,7 +8,7 @@ using it to launch more containers.
 edit the condor config to your liking, and then
 ```
 docker build . 
-docker run --privileged --net=host -v /var/run/docker.sock:/var/run/docker.sock \ 
+docker run --net=host -v /var/run/docker.sock:/var/run/docker.sock \ 
 -v /var/lib/condor:/var/lib/condor -v /cvmfs:/cvmfs:slave <image id> 
 ```
 
