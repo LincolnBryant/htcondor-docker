@@ -17,6 +17,7 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
 
 # KNOBS and startup script
 COPY condor_config.docker_image /etc/condor/config.d/
+COPY wrapper.sh /usr/libexec/condor/
 COPY start-condor.sh /usr/sbin/
 
 # Grab the docker socket's GID and add that to groups, then add condor as a member of that group before starting condor.

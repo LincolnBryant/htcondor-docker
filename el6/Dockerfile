@@ -19,6 +19,7 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
 COPY condor_config.docker_image /etc/condor/config.d/
 COPY start-condor.sh /usr/sbin/
 COPY osgvo-node-advertise /usr/local/bin/
+COPY wrapper.sh /usr/libexec/condor/
 
 # Grab the docker socket's GID and add that to groups, then add condor as a member of that group before starting condor.
 # We may mount /var/lib/docker from the host, so we chown that too.
