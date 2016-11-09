@@ -1,3 +1,6 @@
+# We need a version here. It should match our Dockerhub tag 
+CONFIG_VERSION = alpha-1
+
 # Maybe this one is to do with the normal kernel for CentOS by default 
 # having SELinux turned on, possibly conflicting with the expectations
 # of the minimal kernel provided by the Docker Machine.  I don't know
