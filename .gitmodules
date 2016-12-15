@@ -1,0 +1,3 @@
+[submodule "osg-flock"]
+	path = osg-flock
+	url = https://github.com/opensciencegrid/osg-flock
