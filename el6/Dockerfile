@@ -1,4 +1,4 @@
-FROM centos:centos6
+FROM opensciencegrid/osg-3.3-wn-el6:latest
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
@@ -6,18 +6,13 @@ MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
     curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
     yum -y install condor && \
-    yum -y install epel-release && \
-    yum -y install http://repo.grid.iu.edu/osg/3.3/osg-3.3-el6-release-latest.rpm && \
     yum -y install openssh-clients \ 
-                   openssh-server \
-                   osg-wn-client \
-                   osg-wn-client-glexec \
-                   redhat-lsb-core && \
+                   openssh-server && \
     yum -y install https://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el6.x86_64.rpm && \ 
     yum clean all 
 
-# KNOBS and startup script
-COPY condor_config.docker_image /etc/condor/config.d/
+# Configuration
+COPY worker.conf /etc/condor/config.d/
 COPY start-condor.sh /usr/sbin/
 COPY osgvo-node-advertise /usr/local/bin/
 COPY wrapper.sh /usr/libexec/condor/
