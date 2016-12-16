@@ -1,3 +1,6 @@
+[![Docker Automated buil](https://img.shields.io/docker/automated/lincolnbryant/coreos-osg-wn.svg)]()
+
+
 #htcondor-docker
 
 this is our kustomized worker node image that connects to a fixed htcondor
