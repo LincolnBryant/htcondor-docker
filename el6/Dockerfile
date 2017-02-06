@@ -20,10 +20,12 @@ COPY worker.conf /etc/condor/config.d/
 COPY start-condor.sh /usr/sbin/
 COPY osgvo-node-advertise /usr/local/bin/
 COPY wrapper.sh /usr/libexec/condor/
+COPY set-hostname.sh /usr/local/bin/
 
 # Grab the docker socket's GID and add that to groups, then add condor as a member of that group before starting condor.
 # We may mount /var/lib/docker from the host, so we chown that too.
 ENTRYPOINT groupmod docker -g $(stat -c "%g" /var/run/docker.sock) && \
            usermod -G docker condor && \ 
            chown -R condor: /var/lib/condor && \
+           /usr/local/bin/set-hostname.sh && \
            /usr/sbin/start-condor.sh
