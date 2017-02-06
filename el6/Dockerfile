@@ -12,6 +12,7 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
                    openssh-server \
                    libXt \
                    tcsh && \
+    yum -y remove singularity && \
     yum -y install https://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el6.x86_64.rpm && \ 
     yum clean all 
 
