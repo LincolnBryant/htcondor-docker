@@ -7,11 +7,14 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
     curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
     # libXt needed for some application Bala is using. 
     # tcsh needed for fsurf
+    # ATLAS needs unzip, gcc at least.
     yum -y install condor \
                    openssh-clients \ 
                    openssh-server \
                    libXt \
-                   tcsh && \
+                   tcsh \
+                   gcc \
+                   unzip && \
     yum -y remove singularity && \
     yum -y install https://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el6.x86_64.rpm && \ 
     yum clean all 
