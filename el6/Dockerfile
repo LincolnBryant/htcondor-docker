@@ -1,4 +1,4 @@
-FROM opensciencegrid/osg-3.4-wn-el6:latest
+FROM opensciencegrid/osg-wn:3.4-el6
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
