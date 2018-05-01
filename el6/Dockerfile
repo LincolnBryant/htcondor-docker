@@ -8,7 +8,8 @@ MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
     # libXt needed for some application
     # tcsh needed for fsurf
     # ATLAS needs unzip, gcc at least.
-RUN yum -y install openssh-clients \ 
+RUN yum -y install condor \ 
+                   openssh-clients \ 
                    openssh-server \
                    libXt \
                    tcsh \
