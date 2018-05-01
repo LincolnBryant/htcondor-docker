@@ -1,21 +1,21 @@
-FROM opensciencegrid/osg-wn:3.4-el6
+FROM opensciencegrid/osg-wn:3.4-devel-el6
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
-RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
-    # libXt needed for some application Bala is using. 
+#RUN #rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
+    #curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
+    # libXt needed for some application
     # tcsh needed for fsurf
     # ATLAS needs unzip, gcc at least.
-    yum -y install condor \
-                   openssh-clients \ 
+RUN yum -y install openssh-clients \ 
                    openssh-server \
                    libXt \
                    tcsh \
                    gcc \
+                   libXpm \
+                   libXpm-devel \
                    unzip && \
-    yum -y install libXpm libXpm-devel && \
     yum clean all 
 
 # Configuration
