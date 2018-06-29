@@ -1,10 +1,10 @@
-FROM opensciencegrid/osg-3.3-wn-el6:latest
+FROM opensciencegrid/osg-3.4-wn-el7:latest
 
 MAINTAINER Lincoln Bryant <lincolnb@uchicago.edu>
 
 # Build in one RUN
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \ 
-    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel6.repo > /etc/yum.repos.d/htcondor-development-rhel6.repo && \
+    curl https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo > /etc/yum.repos.d/htcondor-development-rhel7.repo && \
     # libXt needed for some application Bala is using. 
     # tcsh needed for fsurf
     # ATLAS needs unzip, gcc at least.
@@ -16,9 +16,8 @@ RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor &
                    gcc \
                    unzip && \
     yum -y remove singularity && \
-    yum -y install https://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el6.x86_64.rpm && \ 
-    yum -y install libXpm-3.5.10-2.el6.x86_64 && \
-    yum -y install libXpm-devel-3.5.10-2.el6.x86_64 && \
+    yum -y install https://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el7.x86_64.rpm && \ 
+    yum -y install libXpm libXpm-devel && \
     yum clean all 
 
 # Configuration
